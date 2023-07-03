@@ -17,12 +17,12 @@ public class SQLHelper {
 
     private static Connection getConn() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql:localhost:3306/app", "app", "pass"
+                "jdbc:mysql://localhost:3306/app", "app", "pass"
         );
     }
 
     public static DataHelper.VerificationCode getVerificationCode() {
-        var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESK LIMIT 1";
+        var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
             var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
             return new DataHelper.VerificationCode(code);

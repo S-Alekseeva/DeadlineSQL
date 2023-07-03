@@ -1,5 +1,6 @@
 package ru.netology.page.object.data;
 
+import lombok.Data;
 import lombok.Value;
 
 public class DataHelper {
@@ -19,9 +20,5 @@ public class DataHelper {
     @Value
     public static class VerificationCode {
         private String code;
-    }
-
-    public static VerificationCode getVerificationCodeFor() {
-        return new VerificationCode("12345");
     }
 }

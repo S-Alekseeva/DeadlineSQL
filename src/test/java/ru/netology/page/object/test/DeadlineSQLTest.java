@@ -10,13 +10,13 @@ import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.page.object.data.SQLHelper.cleanDatabase;
 
 public class DeadlineSQLTest {
-
     @AfterAll
     static void teardown() {
         cleanDatabase();
     }
+
     @Test
-    void successfulLoginToYourPersonalAccount(){
+    void successfulLoginToYourPersonalAccount() {
         open("http://localhost:9999");
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = LoginPage.validLogin(authInfo);
